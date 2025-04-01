@@ -1,0 +1,265 @@
+* {
+    margin: 0; /* Loại bỏ margin mặc định của tất cả phần tử */
+    padding: 0; /* Loại bỏ padding mặc định của tất cả phần tử */
+    box-sizing: border-box; /* Đảm bảo kích thước phần tử bao gồm cả padding và border */
+}
+body { /* cấu hình body trang */
+    /*background: linear-gradient(to bottom, #88a4eb, #5891cb); /* Gradient từ đen sang xanh đậm */
+    background: linear-gradient(to bottom, #000000, #4174a3); /* Gradient từ đen sang xanh đậm */
+    color: white; /* Màu chữ trắng */
+    font-family: 'Arial', sans-serif; /* Đặt font chữ cho toàn trang */
+    display: block; /* Mặc định body là block */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang (không có tác dụng với display: block) */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc (không có tác dụng với display: block) */
+    height: 100vh; /* Chiều cao bằng 100% chiều cao màn hình */
+    overflow: hidden; /* Ẩn thanh cuộn nếu có */
+
+    position: relative; /* Đảm bảo không che chữ, chú ý đoạn này */ 
+    z-index: 0; /* Đặt thấp nhất, vị trí hiển thị của các phần */
+}
+
+.menu { /* thanh Menu sát trái */
+    width: 70px; /* Menu có chiều rộng mặc định là 70px */
+    height: 100vh; /* Chiều cao bằng 100% màn hình */
+    background: linear-gradient(to bottom, #4174a3, #27394b); /* Gradient từ đen sang xanh đậm */
+    overflow: hidden; /* Ẩn nội dung tràn ra ngoài */
+    transition: width 0.3s; /* Hiệu ứng mở rộng menu trong 0.3s */
+
+    position: fixed; /* Giữ menu cố định */
+    z-index: 999; /* Đảm bảo menu nằm trên chữ */
+}
+
+.menu:hover {
+    width: 260px; /* Khi di chuột vào menu, nó mở rộng ra 260px */
+}
+
+
+.menu-content {
+    list-style: none; /* Loại bỏ dấu chấm mặc định của danh sách <ul> */
+    padding: 20px 10px; /* Tạo khoảng cách bên trong menu */
+}
+
+
+.menu-content li {
+    border-radius: 0px 50px 50px 0px; /* Bo góc tròn bên phải menu */
+    padding: 15px 20px; /* Tạo khoảng cách bên trong từng mục */
+    margin-bottom: 20px; /* Tạo khoảng cách giữa các mục */
+    transition: background 0.3s, padding-left 0.3s; /* Hiệu ứng đổi màu và đẩy nội dung khi hover */
+    display: flex; /* Dùng flexbox để căn chỉnh icon và chữ */
+    align-items: center; /* Căn giữa icon với chữ theo chiều dọc */
+    cursor: pointer; /* Khi di chuột vào, con trỏ đổi thành hình bàn tay */
+}
+.menu-content li:hover {
+    background-color: #b7d0e6; /* Đổi màu nền khi hover */
+    padding-left: 40px; /* Dịch chuyển nội dung sang phải khi hover */
+}
+.menu-content li .icon {
+    width: 20px;  /* Chiều rộng ảnh */
+    height: 20px; /* Chiều cao ảnh */
+    margin-right: 8px; /* Tạo khoảng cách giữa icon và chữ */
+    vertical-align: middle; /* Căn icon thẳng hàng với chữ */
+}
+
+.menu-content li a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ <a> */
+    color: #333; /* Đặt màu chữ */
+    display: none; /* Ẩn nội dung text ban đầu */
+}
+.menu:hover li a {
+    display: block; /* Khi hover vào menu, chữ sẽ hiện lên */
+    margin-left: 10px; /* Tạo khoảng cách giữa icon và chữ */
+}
+
+#Home {
+
+    position: absolute; /* Định vị tuyệt đối so với phần tử cha */
+    top: 10%; /* Đưa phần tử xuống 50% chiều cao màn hình */
+    left: 10%; /* Đưa phần tử sang phải 50% chiều rộng màn hình */
+
+    font-size: 2vw; /* Kích thước chữ 24px */
+    font-weight: bold; /* Chữ in đậm */
+    color: rgb(255, 255, 255); /* Màu chữ trắng */
+
+    z-index: 1; /* Đảm bảo chữ hiển thị phía trên các phần khác */
+}
+.modau{
+    font-size:1.5vw;
+    margin-left: -0.5vw;
+    
+}
+
+#typing {
+    color: rgb(13, 29, 18);
+    /*border-right: 3px solid white; /* Hiệu ứng con trỏ nhấp nháy */
+    font-size: 5vw; /* Chữ bằng 5% chiều rộng màn hình */
+    white-space: nowrap;
+    overflow: hidden;
+    background: linear-gradient(to right, #5bcbea, #3bdf4e); /* Màu gradient giống nền */
+    background-clip: text; /* Áp dụng gradient lên chữ */
+    -webkit-background-clip: text; /* Hỗ trợ trình duyệt WebKit */
+    -webkit-text-fill-color: transparent; /* Làm chữ trong suốt để thấy màu gradient */
+}
+.gioi_thieu {
+    font-size: 5vw; /* Kích thước chữ 4vw căn theo thiết bị */
+    font-weight: bold; /* Chữ in đậm */
+    color: #FFFFFF; /* Màu chữ trắng */
+    margin-top: 20px; /* Tạo khoảng cách giữa các dòng chữ */
+    text-align: center; /* Căn giữa chữ */
+}
+.iam {
+    margin-top: 3vw; /* Tạo khoảng cách giữa các dòng chữ */
+    margin-left: -5vw;
+}
+.inline-text {
+    margin-top: 3vw; /* Tạo khoảng cách giữa các dòng chữ */
+    display: flex; /* Hiển thị "a" và "Developer" trên cùng một hàng */
+}
+
+.profile-img {
+    width: 30vw; /* Chiếm 20% chiều rộng màn hình */
+    max-width: 400px; /* Không lớn hơn 250px */
+    height: auto; /* Giữ nguyên tỉ lệ ảnh */
+    border-radius: 10px; /* Ảnh vuông, không bo tròn */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+
+    position: absolute; /* Đưa ảnh ra sát lề phải */
+    right: 5%; /* Cách lề phải 5% */
+    top: 50%; /* Đưa ảnh xuống giữa màn hình */
+    transform: translateY(-50%); /* Căn chỉnh chính giữa theo chiều dọc */
+}
+
+.chao_hoi {
+    font-family: 'Montserrat', sans-serif;
+    max-width: 50vw; /* Giới hạn chiều rộng tối đa là 600px */
+    width: 90%; /* Chiều rộng tự động điều chỉnh theo màn hình, tối đa là 90% */
+    margin: 0 auto; /* Căn giữa đoạn văn */
+    padding: 0vw; /* Tạo khoảng cách giữa nội dung và viền ngoài */
+    word-wrap: break-word; /* Đảm bảo từ dài không làm tràn nội dung */
+    overflow: hidden; /* Ngăn nội dung tràn ra ngoài */
+    /*text-align: justify; /* Căn đều hai bên để hiển thị đẹp hơn */
+    font-size: 1.25vw;
+    margin-top: 40px; /* Tạo khoảng cách giữa các dòng chữ */
+    margin-left: 0vw;
+}
+
+
+
+/* mạng xã hội */
+.social-links {
+    display: flex;  /* Sử dụng Flexbox để sắp xếp các nút theo hàng ngang */
+    gap: 10px; /* Tạo khoảng cách 10px giữa các nút */
+    position: absolute; /* Định vị tuyệt đối so với phần tử cha */
+    bottom: 8vw; /* Cách mép dưới của phần tử cha một khoảng bằng 8% chiều rộng viewport */
+    left: 10vw; /* Cách mép trái của phần tử cha một khoảng bằng 10% chiều rộng viewport */
+}
+
+.social-btn {
+    display: flex;  /* Sử dụng Flexbox để căn chỉnh nội dung bên trong nút */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    width: 50px; /* Đặt chiều rộng của nút là 50px */
+    height: 50px; /* Đặt chiều cao của nút là 50px */
+    background: linear-gradient(to bottom, #c3ceea, #61a8ef); /* Hiệu ứng màu chuyển từ nhạt sang đậm */
+    border-radius: 12px; /* Bo tròn góc 12px */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng nhẹ để tạo độ nổi */
+    font-size: 20px; /* Kích thước chữ bên trong nút */
+    color: #333; /* Màu chữ là màu xám đậm */
+    text-decoration: none; /* Loại bỏ gạch chân nếu là thẻ <a> */
+    transition: transform 0.2s, box-shadow 0.2s; /* Tạo hiệu ứng mượt mà khi hover */
+}
+
+.social-btn:hover {
+    transform: translateY(-10px); /* Khi di chuột vào, nút sẽ nhảy lên 10px */
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3); /* Tăng độ đậm của bóng khi hover */
+}
+
+
+
+/* phần cuộn xuống dưới page */
+html, body {
+    height: 100%;
+    overflow-y: auto; /* Đảm bảo trang web có thể cuộn */
+    scroll-behavior: smooth; /* Cuộn mượt */
+}
+
+section {
+    min-height: 100vh; /* Mỗi phần chiếm ít nhất 100% chiều cao màn hình */
+    padding: 50px;
+    position: relative;
+}
+
+
+section h2 {
+    position: absolute; /* Định vị tuyệt đối so với phần tử cha */; 
+    z-index: 99;
+    top: 1vw; /* Cách mép dưới của phần tử cha một khoảng bằng 0% chiều rộng viewport */
+    left: 50%; /* Đưa sang giữa */
+    transform: translateX(-50%); /* Căn chỉnh chính xác */
+    font-size: 3vw; /* Kích thước chữ 24px */
+    font-weight: bold; /* Chữ in đậm */
+    background: linear-gradient(to right, #9be6f7, #bafff64c); /* Màu gradient giống nền */
+    background-clip: text; /* Áp dụng gradient lên chữ */
+    -webkit-background-clip: text; /* Hỗ trợ trình duyệt WebKit */
+    -webkit-text-fill-color: transparent; /* Làm chữ trong suốt để thấy màu gradient */
+    
+}
+
+/* thanh line học vấn */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 3vw;
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.timeline-item.left {
+    left: 0;
+    transform: translateX(-100%);
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    transform: translateX(100%);
+    text-align: left;
+}
+
+.timeline-content {
+    /*background: #fff;*/ 
+    padding: 15px;
+    border-radius: 8px;
+    /*box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);*/
+}
+
+/* Định dạng line nối */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #1e1e1e;
+    transform: translateX(-50%);
+}
+
+/* Khi hiển thị, các phần tử di chuyển vào giữa */
+.timeline-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+
+
+
+
